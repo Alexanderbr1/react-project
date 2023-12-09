@@ -1,50 +1,32 @@
-import { useEffect, useState } from 'react';
-import { Table, Button } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { UNIVERSITIES_ROUTE, PHOTOS_ROUTE, CONFIDENTIAL_ROUTE } from './app/routing/config';
+import MainRouter from './app/routing';
+import { Button, Flex } from 'antd';
+import { useState } from 'react';
 
-interface DataType {
-  country: string;
-  name: string;
-}
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: 'Страна',
-    dataIndex: 'country',
-    key: 'country',
-  },
-  {
-    title: 'Название учебного заведения',
-    dataIndex: 'name',
-    key: 'name',
-  },
-]
 const App = () => {
 
-  const LIMIT_LIST_SCHOOL = 10;
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const getUniversity = async (limit: number, page: number) => {
-    const offset = page * LIMIT_LIST_SCHOOL;
-    const response = await axios.get(`http://universities.hipolabs.com/search?offset=${offset}&limit=${limit}`);
-    return response.data;
-  }
-
-  const [page, setPage] = useState<number>(1);
-  const [data, setData] = useState<DataType[]>([]);
-
-  useEffect(() => {
-    getUniversity(LIMIT_LIST_SCHOOL, page - 1).then((data) => setData(data))
-  }, [page])
+  const handleAuthentication = () => {
+    setIsAuthenticated(prevState => !prevState);
+  };
 
   return (
     <>
-      <Table columns={columns} dataSource={data} pagination={false}/>
-      <div className="buttons__wrapper">
-        <Button onClick={(() => setPage(page - 1))} disabled={!(page - 1)}>Назад</Button>
-        <Button>{ page }</Button>
-        <Button onClick={(() => setPage(page + 1))}>Вперед</Button>
-      </div>
+      <header className="header">
+        <div className="header__wrapper">
+          <Flex gap="middle" justify={'center'} align={'center'}>
+            <Link to={ PHOTOS_ROUTE }><Button>Mars Rover Photos</Button></Link>
+            <Link to={ UNIVERSITIES_ROUTE }><Button>University</Button></Link>
+            {isAuthenticated && (
+              <Link to={CONFIDENTIAL_ROUTE}><Button>Confidential</Button></Link>
+            )}
+            <Button onClick={handleAuthentication}>{isAuthenticated ? 'Выйти' : 'Войти'}</Button>
+          </Flex>
+        </div>
+      </header>
+      <MainRouter/>
     </>
   )
 }
