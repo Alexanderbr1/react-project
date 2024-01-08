@@ -5,15 +5,17 @@ import { Link } from "react-router-dom";
 interface PrivateRouteProps {
   path: string;
   isAuthenticated: boolean;
+  name: string;
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({
   path,
   isAuthenticated,
+  name,
 }) => {
   return isAuthenticated ? (
     <Link to={path}>
-      <Button>Confidential</Button>
+      <Button>{name}</Button>
     </Link>
   ) : null;
 };
