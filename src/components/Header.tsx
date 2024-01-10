@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button, Flex } from "antd";
 import {
-  CONFIDENTIAL_ROUTE,
+  FORM_ROUTE,
   PHOTOS_ROUTE,
   UNIVERSITIES_ROUTE,
 } from "../app/routing/config";
@@ -41,7 +41,8 @@ const Header: React.FC<HeaderProps> = ({
               <Button>University</Button>
             </Link>
             <PrivateRoute
-              path={CONFIDENTIAL_ROUTE}
+              path={FORM_ROUTE}
+              name={"Form"}
               isAuthenticated={isAuthenticated}
             />
             <Toggle />
