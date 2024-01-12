@@ -1,5 +1,5 @@
 # Брянцев Александр Сергеевич (группа 221-322)
-
+# Запись работы приложения - https://disk.yandex.ru/i/gAKjYCQIN4Tj1w
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
