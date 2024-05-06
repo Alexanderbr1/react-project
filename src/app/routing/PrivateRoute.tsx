@@ -8,11 +8,7 @@ interface PrivateRouteProps {
   name: string;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({
-  path,
-  isAuthenticated,
-  name,
-}) => {
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ path, isAuthenticated, name }) => {
   return isAuthenticated ? (
     <Link to={path}>
       <Button>{name}</Button>

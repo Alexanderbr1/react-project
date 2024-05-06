@@ -13,10 +13,7 @@ const App = () => {
 
   return (
     <>
-      <Header
-        isAuthenticated={isAuthenticated}
-        handleAuthentication={handleAuthentication}
-      />
+      <Header isAuthenticated={isAuthenticated} handleAuthentication={handleAuthentication} />
       <MainRouter />
     </>
   );
