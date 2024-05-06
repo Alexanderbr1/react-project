@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
 });
 
 const  PdfTemplate: FC<IPdfTemplateProps> = ({ name, picture }) => {
-    console.log(picture)
     return (
         <Document>
             <Page size="A4" style={styles.page}>
