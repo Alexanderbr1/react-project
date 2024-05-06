@@ -41,5 +41,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "lint-staged": "^15.2.2"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,json,jsx,ts,tsx,css}": [
+      "prettify",
+      "eslint --fix"
+    ]
   }
 }
