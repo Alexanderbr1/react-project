@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button, Flex } from "antd";
 import {
-  FORM_ROUTE,
+  FORM_ROUTE, PDF_ROUTE,
   PHOTOS_ROUTE,
   UNIVERSITIES_ROUTE,
-} from "../app/routing/config";
-import Toggle from "./ui/Toggle";
-import PrivateRoute from "../app/routing/PrivateRoute";
-import { StyledProps } from "../pages/confidential";
+} from "../../app/routing/config.ts";
+import Toggle from "../ui/Toggle.tsx";
+import PrivateRoute from "../../app/routing/PrivateRoute.tsx";
 import styled from "styled-components";
 
 interface HeaderProps {
@@ -15,14 +14,14 @@ interface HeaderProps {
   handleAuthentication: () => void;
 }
 
-const HeaderWrapper = styled.div<StyledProps>`
+const HeaderWrapper = styled.div`
   max-width: max-content;
   border-radius: 15px;
   padding: 10px;
   margin: 0 auto;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   margin-bottom: 20px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0 0 0 1px;
 `;
 
 const Header: React.FC<HeaderProps> = ({
@@ -34,6 +33,9 @@ const Header: React.FC<HeaderProps> = ({
       <HeaderWrapper>
         <div>
           <Flex gap="middle" justify={"center"} align={"center"}>
+            <Link to={PDF_ROUTE}>
+              <Button>Pdf Generator</Button>
+            </Link>
             <Link to={PHOTOS_ROUTE}>
               <Button>Mars Rover Photos</Button>
             </Link>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MainRouter from "./app/routing";
-import Header from "./components/Header";
+import Header from "./components/Header/Header.tsx";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
