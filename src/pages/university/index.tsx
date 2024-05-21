@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react";
-import { IUniversity } from "../../components/CardUniversity/CardUniversity.tsx";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import styled from "styled-components";
 import { Card, Spin } from "antd";
+import { IUniversity } from "./types.ts";
 
 const LIMIT_UNIVERSITIES = 10;
 

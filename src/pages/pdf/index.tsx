@@ -72,7 +72,7 @@ const PdfGenerator = () => {
         </form>
         {!!task?.name && (
           <PDFDownloadLink document={<PdfTemplate name={task.name} picture={task.picture} />} fileName="file.pdf">
-            {({ blob, url, loading, error }) => (loading ? "Загрузка..." : "Скачать")}
+            {({ loading }) => (loading ? "Загрузка..." : "Скачать")}
           </PDFDownloadLink>
         )}
       </FormWrapper>
